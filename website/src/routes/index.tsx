@@ -25,7 +25,7 @@ export default component$(() => {
               <LuTerminal class="h-7 w-7 inline-block -mb-1 mr-3" />
               {category}
             </h2>
-            <ul class="text-md grid grid-cols-1 md:grid-cols-2 gap-y-0.5 gap-x-3">
+            <div class="text-md grid grid-cols-1 md:grid-cols-2 gap-y-0.5 gap-x-3">
               {items.map((item, index) => (
                 <a
                   href={`./${item.name.toLowerCase()}`}
@@ -35,7 +35,7 @@ export default component$(() => {
                   <strong>{item.name}</strong>: {item.short}
                 </a>
               ))}
-            </ul>
+            </div>
           </section>
         ))}
         <div class="flex justify-center">
