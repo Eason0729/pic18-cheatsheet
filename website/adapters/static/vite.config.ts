@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://eason0729.github.io/pic18-cheatsheet/",
+        origin: "https://www.pic18.easonabc.eu.org",
       }),
     ],
   };
