@@ -40,9 +40,9 @@ export default component$(() => {
         ))}
         <div class="flex justify-center">
           <a
-            href="https://github.com"
+            href="https://github.com/Eason0729/pic18-cheatsheet"
             target="_blank"
-            class="text-text duration-150 not-disabled:hover:bg-primary not-disabled:hover:text-text-hover focus:ring-4 focus:ring-outline focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 rounded-lg p-2 font-semibold text-lg"
+            class="text-text duration-150 not-disabled:hover:bg-primary not-disabled:hover:text-text-hover focus:ring-4 focus:ring-outline focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 rounded-lg p-2 font-semibold text-lg px-8"
           >
             <LuStar class="inline-block h-6 w-6 mr-2" />
             Star on github
