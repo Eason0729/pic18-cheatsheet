@@ -1,0 +1,9 @@
+{
+  "description": "Branch if **Not Negative**.\n\nThe `BNN` instruction checks the **N** flag in the STATUS register. If the N flag is **0** (i.e., the previous arithmetic operation did **not** result in a negative value), the program counter is set to the supplied label, causing a jump. If the N flag is **1**, the branch is not taken and execution continues with the next instruction.\n\n### Syntax\n```asm\nBNN label\n```\n- `label` — The destination address for the branch.\n\nThe instruction has no optional words or addressing modes; its behaviour is determined solely by the value of the N flag.",
+  "examples": [
+    "; N flag cleared → branch is taken\nBNN L1   ; Jump to L1 because N = 0",
+    "; N flag set → branch is not taken\nBNN L1   ; N = 1, execution continues with the next instruction",
+    "; Demonstrating N cleared after a subtraction\nSUBWF var1, 1   ; var1 -= W → N cleared if result non‑negative\nBNN less_than_zero  ; Branch to less_than_zero because N = 0",
+    "; Using BNN after a comparison that sets N\nADDLW 0x05\nSUBWF var2, 1   ; Compare var2 with 5 → N cleared if var2 >= 5\nBNN greater_or_equal\n; Code continues here if var2 < 5, otherwise jumps to greater_or_equal"
+  ]
+}

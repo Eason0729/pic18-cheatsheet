@@ -1,0 +1,9 @@
+{
+  "description": "Jump unconditionally to the given **program memory address**.\n- The *goto* instruction causes the program counter (PC) to be set to the\n  22‑bit operand **k**.\n- Execution continues at the target location without affecting any data\n  registers or status bits.\n- The operand can be an absolute address or a label that the assembler\n  resolves to an address.",
+  "examples": [
+    "; Goto absolute address 0x1234\nGOTO 0x1234 ; PC = 0x1234",
+    "; Goto label defined later in the code\nGOTO LOOP_START ; PC = address of LOOP_START",
+    "; Goto label with an EQU constant\nPAGE equ 0x2000\nGOTO PAGE ; PC = 0x2000",
+    "; Goto a relative label using back‑reference\nGOTO END\n;\nEND: ; Execution continues here after the jump"
+  ]
+}

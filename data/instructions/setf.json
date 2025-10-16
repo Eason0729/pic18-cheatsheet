@@ -1,0 +1,7 @@
+{
+  "description": "The **SETF** instruction sets the specified file register to logical 1.\n- `d = 0` → the result (logic 1) is stored in **WREG**.\n- `d = 1` → the result is written back to the file register `f`.\n- The instruction does not use the `a` (access/banked) operand; addressing is performed using the normal file register syntax.",
+  "examples": [
+    "; d=0  → result in WREG\nSETF 0x20, 0   ; W = 1",
+    "; d=1  → result back to file register\nSETF 0x20, 1   ; 0x20 = 1"
+  ]
+}

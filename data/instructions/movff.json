@@ -1,0 +1,9 @@
+{
+  "description": "Move the contents of the source file register `fs` to the destination file register `fd`. The instruction performs an 8‑bit copy from `fs` to `fd`; no additional modifiers such as `d` or `a` exist. The address supplied for each operand determines the bank automatically, so the programmer may specify an absolute file address that includes the bank bits.",
+  "examples": [
+    "; Move from access bank to access bank\nMOVFF 0x20, 0x21 ; 0x21 = 0x20",
+    "; Move from bank‑2 address to access bank\nMOVFF 0x92, 0x15 ; 0x15 = 0x92",
+    "; Move from access bank to bank‑1 address\nMOVFF 0x1F, 0x91 ; 0x91 = 0x1F",
+    "; Move between two banked addresses (bank 2 → bank 3)\nMOVFF 0x92, 0x13B ; 0x13B = 0x92"
+  ]
+}

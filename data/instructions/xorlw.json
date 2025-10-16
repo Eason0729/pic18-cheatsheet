@@ -1,0 +1,8 @@
+{
+  "description": "Exclusive OR the contents of **WREG** with a literal.\nThe 8‑bit literal is XORed with WREG and the result is written back into **WREG**. No operand options are available for this instruction.",
+  "examples": [
+    "; XOR a literal with WREG\nXORLW 0x55 ; W = W ^ 0x55",
+    "; XOR with 0x00 (no change)\nXORLW 0x00 ; W = W ^ 0x00",
+    "; Load WREG then XOR with another literal\nMOVLW 0x12\nXORLW 0x34 ; W = 0x12 ^ 0x34 = 0x26"
+  ]
+}

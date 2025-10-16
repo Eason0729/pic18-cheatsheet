@@ -1,0 +1,9 @@
+{
+  "description": "Toggle the state of a single bit in a file register.\nThe specified bit is flipped: 0 becomes 1 and 1 becomes 0.\n- **f** – the file register containing the target bit.\n- **b** – the bit position (0‑7) to toggle.\nThe instruction uses the current bank setting (access‑bank or banked) to resolve **f**.",
+  "examples": [
+    "; Toggle bit 3 of register 0x20 (Access bank)\nBTG 0x20, 3 ; bit 3 of 0x20 toggled",
+    "; Toggle bit 0 of register 0xF5 (Banked address)\nBTG 0xF5, 0 ; bit 0 of 0xF5 toggled",
+    "; Toggle bit 7 of register 0xA0 (Access bank)\nBTG 0xA0, 7 ; bit 7 of 0xA0 toggled",
+    "; Toggle bit 4 of register 0x00 (Access bank, example after previous toggles)\nBTG 0x00, 4 ; bit 4 of 0x00 toggled"
+  ]
+}

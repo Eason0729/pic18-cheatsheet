@@ -1,0 +1,9 @@
+{
+  "description": "Decrement the contents of the file register `f` by one. The result is written back into `f`. The Zero (Z) flag is updated to show whether the new value is zero. If the result **is not zero**, the next instruction is skipped (PC is incremented by two). If the result **is zero**, execution proceeds normally.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; a=0 (Access bank) – decrement, skip if result is not zero\nDCFSNZ 0x20, 0   ; 0x20 = 0x20‑1; if result≠0, PC+=2",
+    "; a=0 (Access bank) – decrement until zero (no skip)\nDCFSNZ 0x20, 0   ; if result=0, PC++",
+    "; a=1 (Banked) – decrement, skip if result is not zero\nDCFSNZ 0x120, 1   ; banked addressing; skip if result≠0",
+    "; a=1 (Banked) – decrement until zero (no skip)\nDCFSNZ 0x120, 1   ; if result=0, PC++"
+  ]
+}

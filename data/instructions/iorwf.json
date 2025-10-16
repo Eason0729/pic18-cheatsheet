@@ -1,0 +1,10 @@
+{
+  "description": "Perform an inclusive OR (logical OR) between the contents of **WREG** and a file register `f`.\n- `d = 0` → result is stored in **WREG**.\n- `d = 1` → result is stored back into register `f`.\n- `a = 0` → **Access‑bank** addressing.\n- `a = 1` → **Banked** addressing.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nIORWF 0x24, 0, 0   ; WREG = 0x20 OR 0x0F = 0x2F",
+    "; d=0, a=1  → result in WREG, Banked address\nIORWF 0x24, 0, 1   ; WREG = 0x20 OR 0x0F = 0x2F",
+    "; d=1, a=0  → result stored in file register, Access bank\nIORWF 0x24, 1, 0   ; 0x24 = 0x20 OR 0x0F = 0x2F",
+    "; d=1, a=1  → result stored in file register, Banked address\nIORWF 0x24, 1, 1   ; 0x24 = 0x20 OR 0x0F = 0x2F",
+    "; Load literal into WREG then OR, result in WREG (Access bank)\nMOVLW 0x0F\nIORWF 0x24, 0, 0   ; WREG = 0x20 OR 0x0F = 0x2F"
+  ]
+}

@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-primary: #ef7722;
+  --color-secondary: #fdbea9;
+  --color-outline: var(--color-primary);
+  --color-text: var(--color-black);
+  --color-text-hover: var(--color-white);
+  --color-input: var(--color-white);
+
+  --color-login-bg: var(--color-gray-50);
+  --color-chat-bg: var(--color-gray-50);
+  --color-sidebar-bg: var(--color-white);
+  --color-chat-input-bg: var(--color-white);
+  --color-user-bg: var(--color-secondary);
+  --color-popup-bg: var(--color-white);
+  --color-component-bg: var(--color-white);
+
+  --color-code-bg: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  @layer base {
+    /* Override primary shades for dark mode inversion */
+    :root {
+      --color-primary: var(--color-orange-600);
+      --color-secondary: var(--color-amber-300);
+      --color-outline: #ccc;
+      --color-text: var(--color-white);
+      --color-text-hover: var(--color-white);
+      --color-input: var(--color-stone-700);
+
+      --color-login-bg: #0d1117;
+      --color-chat-bg: #0d1117;
+      --color-sidebar-bg: var(--color-stone-700);
+      --color-chat-input-bg: var(--color-stone-700);
+      --color-user-bg: var(--color-stone-700);
+      --color-popup-bg: var(--color-stone-800);
+      --color-component-bg: var(--color-stone-700);
+
+      --color-code-bg: #24292e;
+    }
+  }
+}
+
+.nobar {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+
+.nobar::-webkit-scrollbar {
+  display: none;
+  /* Older Safari and Chromium */
+}
+
+.accordion {
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.accordion__input {
+  display: none;
+}
+
+.accordion__header .accordion__empty_header {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  width: 100%;
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+  margin: 0;
+}
+
+.accordion__input:checked ~ .accordion__header + .accordion__content {
+  max-height: 10000px; /* Increase for taller content; approximates auto */
+}
+
+.accordion__empty_header {
+  display: none;
+}
+
+.accordion__input:checked ~ .accordion__empty_header {
+  display: block;
+}
+
+.accordion__input:checked ~ .accordion__empty_header ~ .accordion__header {
+  display: none;
+}
+
+/* Clean up any nested structures */
+.accordion__content > div {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+}

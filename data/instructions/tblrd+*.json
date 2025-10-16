@@ -1,0 +1,8 @@
+{
+  "description": "Read a byte from program memory using the table read mechanism.\n- The instruction increments the table pointer (TBLPTR) **before** the read operation (pre‑increment).\n- The byte located at the new TBLPTR address is copied into the table register **TBLR**.\n- The increment is performed on the full 23‑bit TBLPTR (TBLPTRU:TBLPTRH:TBLPTRL).\n- The result is not automatically transferred to WREG; a subsequent **MOVF TBLR, W** is typically used to obtain the value in WREG.\n- The instruction has no operands or address options.",
+  "examples": [
+    "; TBLRD+* – pre‑increment read from address 0x0124 (TBLPTR=0x0123 before)\nTBLRD+* ; TBLR = byte at 0x0124, TBLPTR becomes 0x0124",
+    "; TBLRD+* – read from start of program memory, TBLPTR=0x0000\nTBLRD+* ; TBLR = byte at 0x0001, TBLPTR becomes 0x0001",
+    "; TBLRD+* – pre‑increment from a high address 0xFFFFE (TBLPTR=0xFFFFE)\nTBLRD+* ; TBLR = byte at 0xFFFFF, TBLPTR becomes 0xFFFFF"
+  ]
+}

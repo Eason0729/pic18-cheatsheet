@@ -1,0 +1,10 @@
+{
+  "description": "Adjust the contents of **WREG** after a BCD addition or subtraction, converting the result to a valid Binary‑Coded‑Decimal (BCD) value.\n- Since the operand is implicit, the syntax contains no address or options.\n- The instruction examines the lower nibble, and if it is greater than 9, adds 6 to correct it. It then examines the upper nibble (after the lower‑nibble adjustment); if it is greater than 9 or the B flag is set, it adds 0x60. The carry flag is updated accordingly.\n- Flag updates: The Z, C, and DC bits are set based on the result.",
+  "examples": [
+    "; After successfull ADDWF, WREG harbours BCD result needing adjustment\nDAW ; adjust WREG to BCD format",
+    "; After SUBWF, WREG contains BCD difference requiring correction\nDAW ; adjust the subtraction result in WREG",
+    "; When WREG holds a correctly‑formatted BCD value already\nDAW ; no change, but flags updated",
+    "; Preloading WREG with a literal and then adjusting\nMOVLW 0x09\nDAW ; literal is already BCD, no adjustment needed",
+    "; Following an addition that set carry, WREG is adjusted and carry cleared\nADDWF 0x12, 1, 0\nDAW ; adjust resulting BCD and update carry"
+  ]
+}

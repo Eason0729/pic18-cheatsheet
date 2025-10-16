@@ -1,0 +1,8 @@
+{
+  "description": "Branch if NOT Carry (BNC).\n\nPerforms a relative branch if the Carry flag (C) is cleared.\n- If C = 0, the program counter (PC) is updated with the relative offset specified by the label (K).\n- If C = 1, the instruction is a no‑op and execution continues with the next instruction.\n\nThe branch target is specified by a label; the assembler automatically encodes the offset.",
+  "examples": [
+    "; Branch taken if Carry cleared\nCLRC\nBNC BranchTaken ; PC jumps to BranchTaken because C=0",
+    "; Branch not taken because Carry set\nSETC\nBNC BranchTaken ; execution continues after BNC because C=1",
+    "; Simple BNC use with a label offset\nBNC OffLabel ; relative branch to OffLabel when C=0"
+  ]
+}

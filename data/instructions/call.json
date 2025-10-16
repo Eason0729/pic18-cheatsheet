@@ -1,0 +1,8 @@
+{
+  "description": "Call a subroutine located at a program counter address.\n- The current value of the program counter (PC) just after the CALL instruction is pushed onto the stack.\n- The processor then loads the PC with the target address, causing an unconditional jump to the subroutine.\n- After the subroutine completes, a **RETURN** instruction pops the previously saved PC from the stack and resumes execution.\n```asm\nCALL k\n```\nwhere *k* is a 16‑bit program memory address or a label referencing such an address.",
+  "examples": [
+    "; Call subroutine 'mySub' by label\nCALL mySub ; jump to subroutine at label mySub",
+    "; Call subroutine at absolute address 0x1234\nCALL 1234h ; PC set to 0x1234",
+    "; Call subroutine located at address 0x0FFE\nCALL 0x0FFEh ; jump to subroutine at address 0x0FFE"
+  ]
+}

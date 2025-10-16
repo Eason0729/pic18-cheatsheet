@@ -1,0 +1,10 @@
+{
+  "description": "Rotate the contents of a byte‑oriented file register `f` one bit to the right through the Carry flag.\n- `a = 0` → use the Access Bank for `f`.\n- `a = 1` → use the Banked memory for `f`.\n\nThe least‑significant bit of `f` is moved into the Carry flag; the original Carry entry is shifted into bit 7 of the register. The new value is written back to `f`.",
+  "examples": [
+    "; a=0  → rotate in Access bank\nRRCF 0x20, 0 ; 0x20 = (0x20 >> 1) | (C << 7)",
+    "; a=1  → rotate in Banked address\nRRCF 0x20, 1 ; 0x20 = (0x20 >> 1) | (C << 7)",
+    "; Load 0x3 into 0x20 then rotate, a=0\nMOVLW 0x3\nMOVWF 0x20, 0\nRRCF 0x20, 0 ; 0x20 = (0x03 >> 1) | (C << 7)",
+    "; Load 0x80 into 0x20 then rotate, a=1\nMOVLW 0x80\nMOVWF 0x20, 1\nRRCF 0x20, 1 ; 0x20 = (0x80 >> 1) | (C << 7)",
+    "; Load 0xFF into 0x30 then rotate, a=0\nMOVLW 0xFF\nMOVWF 0x30, 0\nRRCF 0x30, 0 ; 0x30 = (0xFF >> 1) | (C << 7)"
+  ]
+}

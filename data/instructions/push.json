@@ -1,0 +1,8 @@
+{
+  "description": "Push the contents of the **top-of-return-stack** (TOS) onto the user stack.\n\n- **PUSH** has no operands or addressing modes.\n- It simply copies the value in TOS into the stack pointer register, thereby increasing the stack pointer.\n- The instruction is useful for saving the current return address or for manipulating the user stack.",
+  "examples": [
+    "; Push TOS onto the user stack\nPUSH ; TOS value is pushed onto the stack",
+    "; Save the current return address before a subroutine call\nPUSH ; TOS is saved on the stack",
+    "; Restore TOS after a subroutine completes\nPOP ; TOS is restored from the stack"
+  ]
+}

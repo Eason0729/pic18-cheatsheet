@@ -1,0 +1,8 @@
+{
+  "description": "Move a 16‑bit literal value into a File Select Register (FSRx). The `a` operand selects the FSR register to be loaded: 0 for FSR0, 1 for FSR1, (and 2 for FSR2 on devices that support it). The literal `f` is split into the low and high bytes and transferred into the chosen FSR pair (FSRxL and FSRxH). This instruction is useful to set an indirect address for subsequent file register access.\n\n```asm\nLFSR f, a\n```\n- **f** – 16‑bit literal used as the address to load.\n- **a** – selects the destination FSR register (0 = FSR0, 1 = FSR1, 2 = FSR2).",
+  "examples": [
+    "; Load FSR0 with address 0x1234\nLFSR 0x1234, 0 ; FSR0 = 0x1234",
+    "; Load FSR1 with address 0x5678\nLFSR 0x5678, 1 ; FSR1 = 0x5678",
+    "; Load FSR2 with address 0xABCD (supported on devices with FSR2)\nLFSR 0xABCD, 2 ; FSR2 = 0xABCD"
+  ]
+}

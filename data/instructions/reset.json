@@ -1,0 +1,6 @@
+{
+  "description": "Reset the PIC18 device to its initial state via software.\n- This instruction has no operands.\n- Execution of RESET causes the microcontroller to perform a full reset, identical to a power‑on reset.",
+  "examples": [
+    "; Reset the device\nRESET ; triggers a software reset"
+  ]
+}

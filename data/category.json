@@ -1,0 +1,106 @@
+[
+  {
+    "category_name": "Byte-oriented File Register Operations",
+    "instructions": [
+      { "name": "ADDWF", "description": "Add WREG to f" },
+      { "name": "ADDWFC", "description": "Add WREG and Carry bit to f" },
+      { "name": "ANDWF", "description": "AND WREG with f" },
+      { "name": "CLRF", "description": "Clear f" },
+      { "name": "COMF", "description": "Complement f" },
+      { "name": "CPFSEQ", "description": "Compare f with WREG, skip =" },
+      { "name": "CPFSGT", "description": "Compare f with WREG, skip if >" },
+      { "name": "CPFSLT", "description": "Compare f with WREG, skip if <" },
+      { "name": "DECF", "description": "Decrement f" },
+      { "name": "DECFSZ", "description": "Decrement f, Skip if 0" },
+      { "name": "DCFSNZ", "description": "Decrement f, Skip if Not 0" },
+      { "name": "INCF", "description": "Increment f" },
+      { "name": "INCFSZ", "description": "Increment f, Skip if 0" },
+      { "name": "INFSNZ", "description": "Increment f, Skip if Not 0" },
+      { "name": "IORWF", "description": "Inclusive OR WREG with f" },
+      { "name": "MOVF", "description": "Move f" },
+      {
+        "name": "MOVFF",
+        "description": "Move fs (source) to fd (destination)"
+      },
+      { "name": "MOVWF", "description": "Move WREG to f" },
+      { "name": "MULWF", "description": "Multiply WREG with f" },
+      { "name": "NEGF", "description": "Negate f" },
+      { "name": "RLCF", "description": "Rotate Left f through Carry" },
+      { "name": "RLNCF", "description": "Rotate Left f (No Carry)" },
+      { "name": "RRCF", "description": "Rotate Right f through Carry" },
+      { "name": "RRNCF", "description": "Rotate Right f (No Carry)" },
+      { "name": "SETF", "description": "Set f" },
+      { "name": "SUBFWB", "description": "Subtract f from WREG with borrow" },
+      { "name": "SUBWF", "description": "Subtract WREG from f" },
+      { "name": "SUBWFB", "description": "Subtract WREG from f with borrow" },
+      { "name": "SWAPF", "description": "Swap nibbles in f" },
+      { "name": "TSTFSZ", "description": "Test f, skip if 0" },
+      { "name": "XORWF", "description": "Exclusive OR WREG with f" }
+    ]
+  },
+  {
+    "category_name": "Bit-oriented File Register Operations",
+    "instructions": [
+      { "name": "BCF", "description": "Bit Clear f" },
+      { "name": "BSF", "description": "Bit Set f" },
+      { "name": "BTFSC", "description": "Bit Test f, Skip if Clear" },
+      { "name": "BTFSS", "description": "Bit Test f, Skip if Set" },
+      { "name": "BTG", "description": "Bit Toggle f" }
+    ]
+  },
+  {
+    "category_name": "Control Operations",
+    "instructions": [
+      { "name": "BC", "description": "Branch if Carry" },
+      { "name": "BN", "description": "Branch if Negative" },
+      { "name": "BNC", "description": "Branch if Not Carry" },
+      { "name": "BNN", "description": "Branch if Not Negative" },
+      { "name": "BNOV", "description": "Branch if Not Overflow" },
+      { "name": "BNZ", "description": "Branch if Not Zero" },
+      { "name": "BOV", "description": "Branch if Overflow" },
+      { "name": "BRA", "description": "Branch Unconditionally" },
+      { "name": "BZ", "description": "Branch if Zero" },
+      { "name": "CALL", "description": "Call subroutine" },
+      { "name": "CLRWDT", "description": "Clear Watchdog Timer" },
+      { "name": "DAW", "description": "Decimal Adjust WREG" },
+      { "name": "GOTO", "description": "Go to address" },
+      { "name": "NOP", "description": "No Operation" },
+      { "name": "POP", "description": "Pop top of return stack (TOS)" },
+      { "name": "PUSH", "description": "Push top of return stack (TOS)" },
+      { "name": "RCALL", "description": "Relative Call" },
+      { "name": "RESET", "description": "Software device RESET" },
+      { "name": "RETFIE", "description": "Return from interrupt enable" },
+      { "name": "RETLW", "description": "Return with literal in WREG" },
+      { "name": "RETURN", "description": "Return from Subroutine" },
+      { "name": "SLEEP", "description": "Go into Standby mode" }
+    ]
+  },
+  {
+    "category_name": "Literal Operations",
+    "instructions": [
+      { "name": "ADDLW", "description": "Add literal and WREG" },
+      { "name": "ANDLW", "description": "AND literal with WREG" },
+      { "name": "IORLW", "description": "Inclusive OR literal with WREG" },
+      { "name": "LFSR", "description": "Move literal to FSRx" },
+      { "name": "MOVLB", "description": "Move literal to BSR<3:0>" },
+      { "name": "MOVLW", "description": "Move literal to WREG" },
+      { "name": "MULLW", "description": "Multiply literal with WREG" },
+      { "name": "RETLW", "description": "Return with literal in WREG" },
+      { "name": "SUBLW", "description": "Subtract WREG from literal" },
+      { "name": "XORLW", "description": "Exclusive OR literal with WREG" }
+    ]
+  },
+  {
+    "category_name": "Data & Program Memory Operations",
+    "instructions": [
+      { "name": "TBLRD*", "description": "Table Read" },
+      { "name": "TBLRD*+", "description": "Table Read with post-increment" },
+      { "name": "TBLRD*-", "description": "Table Read with post-decrement" },
+      { "name": "TBLRD+*", "description": "Table Read with pre-increment" },
+      { "name": "TBLWT*", "description": "Table Write" },
+      { "name": "TBLWT*+", "description": "Table Write with post-increment" },
+      { "name": "TBLWT*-", "description": "Table Write with post-decrement" },
+      { "name": "TBLWT+*", "description": "Table Write with pre-increment" }
+    ]
+  }
+]

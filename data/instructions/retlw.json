@@ -1,0 +1,6 @@
+{
+  "description": "Load an 8‑bit literal value into **WREG** and return from the current subroutine.\n- The register **WREG** is overwritten with the specified literal.\n- The processor then performs the equivalent of a **retfie**/**return** by popping the return address from the stack and loading it into the program counter.\n- The operand is an 8‑bit immediate value.\n\n```asm\nRETLW literal\n```\n",
+  "examples": [
+    "; Return with literal 0x27 in WREG\nRETLW 0x27    ; WREG = 0x27, PC = return address"
+  ]
+}

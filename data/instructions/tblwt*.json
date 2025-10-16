@@ -1,0 +1,8 @@
+{
+  "description": "Store the 8‑bit contents of **WREG** into the memory location pointed to by the table pointer (`TBLPTR`) and the table page register (`TBLPAG`).\n\n- The instruction name is **TBLWT** (Table Write). It has no operands; the destination address is formed from the high byte of `TBLPTR` and the 8‑bit `TBLPAG` value.\n- After executing `TBLWT`, the data in **WREG** is written to SRAM in the selected table page.\n- The instruction should be used only when the Table Pointer has been correctly initialized by loading `TBLPTRL`, `TBLPTRH` (and optionally `TBLPTRU` for 16‑bit) and setting `TBLPAG`.\n\n```asm\nTBLWT\n```\n",
+  "examples": [
+    "; Example 1: Write 0x12 to table address 0x0000 (default page 0)\nMOVLW 0x12\nTBLWT",
+    "; Example 2: Set table page to 1 and write 0x22 to address 0x0100\nMOVLW 0x22\nMOVWF TBLPAG\nMOVLW 0x00\nMOVWF TBLPTRL\nMOVLW 0x01\nMOVWF TBLPTRH\nTBLWT",
+    "; Example 3: Write 0x44, then read back with TBLRD\nMOVLW 0x44\nTBLWT\nMOVLW 0x00\nTBLRD\n"
+  ]
+}

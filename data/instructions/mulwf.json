@@ -1,0 +1,10 @@
+{
+  "description": "Multiply the contents of **WREG** with a file register `f`. The multiplication yields a 16‑bit product, with the low byte stored in **WREG** and the high byte stored in register `f`.\n- `d = 0` → The low byte of the product is stored in **WREG**; the high byte remains in `f` (the result is effectively in WREG and `f`).\n- `d = 1` → The product is written back into register `f` (the low byte goes to WREG and the high byte goes to `f`).\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; d=0, a=0  → product stored in WREG, Access bank\nMULWF 0x12, 0, 0   ; WREG = low*0x12, high byte stays in 0x12",
+    "; d=0, a=1  → product stored in WREG, Banked address\nMULWF 0xB0, 0, 1   ; WREG = low*0xB0, high byte stays in 0xB0",
+    "; d=1, a=0  → product written back to f, Access bank\nMULWF 0x12, 1, 0   ; 0x12 = high*0x12 and low part in WREG",
+    "; d=1, a=1  → product written back to f, Banked address\nMULWF 0xB0, 1, 1   ; 0xB0 = high*0xB0 and low part in WREG",
+    "; Load literal into WREG then multiply, result in WREG (Access bank)\nMOVLW 0x10\nMULWF 0x12, 0, 0   ; WREG = low*0x12, high byte stays in 0x12"
+  ]
+}

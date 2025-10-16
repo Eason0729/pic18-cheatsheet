@@ -1,0 +1,10 @@
+{
+  "description": "Rotate the contents of file register **f** one bit position to the right without affecting the **C** (carry) flag.\n- The least‑significant bit is discarded.\n- Bit 7 is loaded with logic **0** (logical shift right).\n- The **C** flag is preserved (no change).\n- The result is written either back to **f** or to **WREG** depending on *d*.\n- **d = 0** → result is stored in **WREG**.\n- **d = 1** → result is stored back into register **f**.\n- **a = 0** → Access bank addressing.\n- **a = 1** → Banked addressing.",
+  "examples": [
+    "; d=0, a=0  → rotate right, result in WREG, Access bank\nRRNCF 0x20, 0, 0   ; W = 0x20 >> 1 (carry unchanged)",
+    "; d=0, a=1  → rotate right, result in WREG, Banked address\nRRNCF 0x20, 0, 1   ; W = 0x20 >> 1 (carry unchanged)",
+    "; d=1, a=0  → rotate right, result back to f, Access bank\nRRNCF 0x20, 1, 0   ; 0x20 = 0x20 >> 1 (carry unchanged)",
+    "; d=1, a=1  → rotate right, result back to f, Banked address\nRRNCF 0x20, 1, 1   ; 0x20 = 0x20 >> 1 (carry unchanged)",
+    "; WREG preloaded with literal (unused), result in WREG\nMOVLW 0xAB\nRRNCF 0x20, 0, 0   ; W = 0x20 >> 1 (carry unchanged)"
+  ]
+}

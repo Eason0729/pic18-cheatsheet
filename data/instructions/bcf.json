@@ -1,0 +1,10 @@
+{
+  "description": "Clear the bit specified by `b` in the file register `f`. The bit is set to 0 and all other bits in the register remain unchanged. The file register may be located in the access bank or in a banked area; the instruction automatically selects the correct bank based on the register address.",
+  "examples": [
+    "; Clear RP0 bit (bit 5) of the STATUS register (access bank)\nBCF STATUS,RP0 ; clear RP0 bit in STATUS register",
+    "; Clear bit 3 of the PORTA register (access bank)\nBCF PORTA,3 ; clear bit 3 in PORTA",
+    "; Clear bit 5 of a banked register located at address 0x70\nBCF 0x70,5 ; clear bit 5 in register 0x70",
+    "; Clear bit 2 of a user‑defined variable `myVar` (in GPR)\nBCF myVar,2 ; clear bit 2 in myVar",
+    "; Clear bit 0 of the PORTB register (PORTB is an SFR in the access bank)\nBCF PORTB,0 ; clear bit 0 in PORTB"
+  ]
+}

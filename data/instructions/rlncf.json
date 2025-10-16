@@ -1,0 +1,10 @@
+{
+  "description": "Rotate the content of a **file register** `f` left by one bit while leaving the Carry flag unchanged.\n- `d = 0` → result is stored in **WREG**.\n- `d = 1` → result is stored back into register `f`.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing. The bit shifted out of bit 7 is discarded and a `0` is shifted into bit 0.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nRLNCF 0x20, 0, 0   ; W = (0x20 << 1) & 0xFF",
+    "; d=0, a=1  → result in WREG, Banked address\nRLNCF 0x20, 0, 1   ; W = (0x20 << 1) & 0xFF",
+    "; d=1, a=0  → result back to file register, Access bank\nRLNCF 0x20, 1, 0   ; 0x20 = (0x20 << 1) & 0xFF",
+    "; d=1, a=1  → result back to file register, Banked address\nRLNCF 0x20, 1, 1   ; 0x20 = (0x20 << 1) & 0xFF",
+    "; Load literal into WREG then rotate left, result in WREG (Access bank)\nMOVLW 0x10\nRLNCF 0x20, 0, 0   ; W = (0x20 << 1) & 0xFF"
+  ]
+}

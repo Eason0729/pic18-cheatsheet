@@ -1,0 +1,7 @@
+{
+  "description": "Test the bit value of a file register `f` at bit position `b`.\n- If the bit is **clear** (0), the CPU **skips** the next sequential instruction.\n- If the bit is **set** (1), the next instruction executes normally.\n- `a = 0` → Addressing uses the **access bank**.\n- `a = 1` → Addressing uses the **banked file registers**.",
+  "examples": [
+    "; Skip next instruction if RB2 is clear (Access bank)\nBTFSC PORTB, 2     ; Skip IF bit 2 of PORTB is clear\nCLRF  PORTC         ; Executed only if bit 2 of PORTB is set",
+    "; Test a banked register: skip if bit 5 of file register 0x78 is clear\nBTFSC 0x78, 5, 1   ; Skip IF bit 5 of file register 0x78 is clear\nCLRF  0x79          ; Executed only if bit 5 of 0x78 is set"
+  ]
+}

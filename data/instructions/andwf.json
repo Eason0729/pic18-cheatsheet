@@ -1,0 +1,10 @@
+{
+  "description": "AND the contents of **WREG** with file register `f`.\n- `d = 0` → result is stored in **WREG**.\n- `d = 1` → result is stored back into register `f`.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nANDWF 0x21, 0, 0   ; W = 0x21 & W",
+    "; d=0, a=1  → result in WREG, Banked address\nANDWF 0x21, 0, 1   ; W = 0x21 & W",
+    "; d=1, a=0  → result back to file register, Access bank\nANDWF 0x21, 1, 0   ; 0x21 = 0x21 & W",
+    "; d=1, a=1  → result back to file register, Banked address\nANDWF 0x21, 1, 1   ; 0x21 = 0x21 & W",
+    "; Load literal into WREG then AND, result in WREG (Access bank)\nMOVLW 0x0F\nANDWF 0x21, 0, 0   ; W = 0x21 & 0x0F"
+  ]
+}

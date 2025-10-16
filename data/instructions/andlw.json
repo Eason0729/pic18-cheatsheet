@@ -1,0 +1,7 @@
+{
+  "description": "Perform a bitwise **AND** between the 8‑bit value in **WREG** and an 8‑bit literal `k`. The result overwrites **WREG**.\n\nThe literal can be specified in decimal, hexadecimal (`0x`) or octal (`0`) format. This instruction has no destination (`d`) or bank (`a`) bits; it always writes back to **WREG**.",
+  "examples": [
+    "; AND literal with WREG\nANDLW 0x0F ; W = W & 0x0F",
+    "; Load W with 0xF0 then AND it with 0x0F\nMOVLW 0xF0\nANDLW 0x0F ; W = 0xF0 & 0x0F = 0x00"
+  ]
+}

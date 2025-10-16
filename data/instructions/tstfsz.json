@@ -1,0 +1,9 @@
+{
+  "description": "Test the contents of a file register `f`; if the register contains **zero**, the CPU skips the following instruction.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.\nThe instruction does not modify any registers. It only affects the program counter.",
+  "examples": [
+    "; a=0, register zero – next instruction skipped\nTSTFSZ 0x20, 0 ; if 0x20 == 0 skip the following instruction",
+    "; a=0, register non‑zero – instruction proceeds\nTSTFSZ 0x20, 0 ; if 0x20 != 0 execute the following instruction",
+    "; a=1, register zero – next instruction skipped\nTSTFSZ 0x20, 1 ; if 0x20 == 0 (banked address) skip the following instruction",
+    "; a=1, register non‑zero – instruction proceeds\nTSTFSZ 0x20, 1 ; if 0x20 != 0 (banked address) execute the following instruction"
+  ]
+}

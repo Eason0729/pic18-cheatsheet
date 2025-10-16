@@ -1,0 +1,15 @@
+{
+  "description": "Read a word from program memory at the address held in the **Table Pointer** registers (`TBLPTRU:TBLPTRH:TBLPTRL`).\n- `*` suffix → the Table Pointer is **post‑decremented** after the transfer.\n- `d = 0` → result is stored in **WREG**.\n- `d = 1` → result is stored back into register `f`.\n- `a = 0` → destination file register is addressed in the **access bank**.\n- `a = 1` → destination file register is addressed in a **banked** RAM area.\n```asm\nTBLRD* f, [d], [a]\n```\nThe instruction is typically used after setting `TBLPTR` to the desired program‑memory location; the read transfers the 16‑bit word at that address into the destination and then decrements `TBLPTR` by one (because of the `*`).",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank",
+    "TBLRD* 0x20, 0, 0   ; WREG = PGM[ TBLPTR ]; TBLPTR decremented",
+    "; d=0, a=1  → result in WREG, Banked address",
+    "TBLRD* 0x20, 0, 1   ; WREG = PGM[ TBLPTR ]; TBLPTR decremented",
+    "; d=1, a=0  → result back to file register, Access bank",
+    "TBLRD* 0x20, 1, 0   ; 0x20 = PGM[ TBLPTR ]; TBLPTR decremented",
+    "; d=1, a=1  → result back to file register, Banked address",
+    "TBLRD* 0x20, 1, 1   ; 0x20 = PGM[ TBLPTR ]; TBLPTR decremented",
+    "; Load WREG with a literal, then perform table read (d=0)",
+    "MOVLW 0x10\nTBLRD* 0x20, 0, 0   ; WREG overwritten with PGM[ TBLPTR ]; TBLPTR decremented"
+  ]
+}

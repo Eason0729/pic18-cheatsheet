@@ -1,0 +1,10 @@
+{
+  "description": "Decrement the contents of file register `f` by one.\n- The resulting value is either written back to `f` or to **WREG** depending on the **d** option.\n- If the decrement result is zero, the processor skips the following instruction.\n- `d = 0` → store result in **WREG**.\n- `d = 1` → store result back into file register `f`.\n- `a = 0` → use Access‑bank addressing for `f`.\n- `a = 1` → use Banked addressing for `f`.\n```asm\nDECFSZ f, [d], [a]\n```\n",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nDECFSZ 0x20, 0, 0   ; W = 0x20-1, skip if result is 0",
+    "; d=0, a=1  → result in WREG, Banked addressing\nDECFSZ 0x20, 0, 1   ; W = 0x20-1, skip if result is 0",
+    "; d=1, a=0  → result back to file register, Access bank\nDECFSZ 0x20, 1, 0   ; 0x20 = 0x20-1, skip if result is 0",
+    "; d=1, a=1  → result back to file register, Banked addressing\nDECFSZ 0x20, 1, 1   ; 0x20 = 0x20-1, skip if result is 0",
+    "; Load literal into WREG then decrement (result stored in WREG, Access bank)\nMOVLW 0x10\nDECFSZ 0x20, 0, 0   ; W = 0x20-1, skip if result is 0"
+  ]
+}

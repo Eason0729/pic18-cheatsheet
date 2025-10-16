@@ -1,0 +1,7 @@
+{
+  "description": "Clear the contents of a file register `f`. The register is set to `0` and no value is written back to **WREG**. The **a** operand selects the address space: `a = 0` for the access bank, `a = 1` for a banked area.",
+  "examples": [
+    "; a=0  → Clear register in Access bank\nCLRF 0x20, 0   ; 0x20 = 0x00",
+    "; a=1  → Clear register in Banked address\nCLRF 0x20, 1   ; 0x20 = 0x00 (banked)"
+  ]
+}

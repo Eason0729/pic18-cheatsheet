@@ -1,0 +1,6 @@
+{
+  "description": "Enter the processor’s Standby (sleep) mode, halting all operation until a reset occurs.",
+  "examples": [
+    "; Enter sleep mode\nSLEEP ; processor halts until reset"
+  ]
+}

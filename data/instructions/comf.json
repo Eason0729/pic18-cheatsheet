@@ -1,0 +1,10 @@
+{
+  "description": "Complement the contents of file register **f**.\n- The instruction performs a bitwise logical negate (NOT) of register `f`.\n- The result is stored **WREG** if `d = 0` or back into register `f` if `d = 1`.\n- The `a = 0` option selects the **Access Bank**; `a = 1` selects the **Banked** addressing mode.\n- The `Z` flag is set if the result is zero; the `C` flag remains unchanged.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nCOMF 0x20, 0, 0 ; W = ~0x20",
+    "; d=0, a=1  → result in WREG, Banked address\nCOMF 0x20, 0, 1 ; W = ~0x20",
+    "; d=1, a=0  → result back to file register, Access bank\nCOMF 0x20, 1, 0 ; 0x20 = ~0x20",
+    "; d=1, a=1  → result back to file register, Banked address\nCOMF 0x20, 1, 1 ; 0x20 = ~0x20",
+    "; Load literal into WREG then complement, result in WREG (Access bank)\nMOVLW 0x10\nCOMF 0x20, 0, 0 ; W = ~0x20"
+  ]
+}

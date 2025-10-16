@@ -1,0 +1,9 @@
+{
+  "description": "Perform a bitwise inclusive OR between **WREG** and an 8‑bit literal value.\n- The result of the operation is stored back into **WREG**.\n- The status register **Z** is set if the resulting value is zero; otherwise it is cleared.\n- This instruction does **not** affect the carry flag or any other status bits.",
+  "examples": [
+    "; W=0x20 before\nIORLW 0x10 ; W = 0x20 | 0x10 = 0x30",
+    "; W=0x00 before\nIORLW 0xFF ; W = 0x00 | 0xFF = 0xFF",
+    "; W=0xF0 before\nIORLW 0x0F ; W = 0xF0 | 0x0F = 0xFF",
+    "; W already contains 0x1C, OR with 0x2A\nIORLW 0x2A ; W = 0x1C | 0x2A = 0x3F"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "description": "Add the literal value **k** to the contents of **WREG**. The result is written back to **WREG**. \n- **a = 0** – Access‑bank syntax (ignored by hardware, but accepted for assembler consistency).\n- **a = 1** – Banked syntax (also ignored, result is the same).",
+  "examples": [
+    "; a=0 (Access bank) → W = W + 0x05",
+    "ADDLW 0x05, 0   ; W = oldW + 5",
+    "; a=1 (Banked) → W = W + 0x05",
+    "ADDLW 0x05, 1   ; W = oldW + 5",
+    "; Pre-load WREG with literal then add",
+    "MOVLW 0x10",
+    "ADDLW 0x05      ; W = 0x10 + 5"
+  ]
+}

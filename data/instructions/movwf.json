@@ -1,0 +1,8 @@
+{
+  "description": "Move the contents of **WREG** to the file register `f`.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; a=0 → result stored in f (Access bank)\nMOVWF 0x1F, 0 ; 0x1F = W",
+    "; a=1 → result stored in f (Banked address)\nMOVWF 0x1F, 1 ; 0x1F = W",
+    "; Load literal into WREG then move, result in f (Access bank)\nMOVLW 0x0A\nMOVWF 0x1F, 0 ; 0x1F = 0x0A"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "description": "Perform **no operation**. The instruction consumes one instruction cycle and leaves **every** register and flag unchanged.\n- **No operands**—the opcode alone encodes the operation.\n- The instruction is useful for timing adjustments or pad alignment.",
+  "examples": [
+    "; NOP does nothing\nNOP ; instruction consumes 1 cycle"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Branch if Overflow (BOV). If the **Overflow (OF)** bit (bit 2) of the **STATUS** register is set after a previous arithmetic operation, the program counter is incremented by the word offset specified by the label; otherwise execution continues with the following instruction.\n\nSyntax:\n```asm\nBOV label\n```\n\n- `label` – the branch target. The branch is taken if `OF = 1`.",
+  "examples": [
+    "; BOV taken when OF=1 → branch to L1\nBOV L1 ; PC jumps to label L1 because OF = 1",
+    "; BOV not taken when OF=0 → continue to next instruction\nBOV L2 ; PC remains on the next word because OF = 0",
+    "; BOV taken after addition that sets OF\nMOVLW 0x80\nADDLW 0x80\nBOV L3 ; OF set by signed overflow, branch to L3",
+    "; BOV not taken after addition that clears OF\nMOVLW 0x01\nADDLW 0x02\nBOV L4 ; OF cleared, no branch",
+    "; BOV taken with WREG preloaded and signed overflow from addition\nMOVLW 0x80\nADDLW 0x80\nBOV L5 ; OF set, branch to L5"
+  ]
+}

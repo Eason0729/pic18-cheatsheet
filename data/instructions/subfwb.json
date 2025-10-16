@@ -1,0 +1,10 @@
+{
+  "description": "Subtract the contents of file register `f` and the borrow flag from **WREG**.\n- `d = 0` → result stored in **WREG**.\n- `d = 1` → result stored back into register `f`.\n- `a = 0` → Access bank addressing.\n- `a = 1` → Banked addressing.\n- The borrow flag is the status bit **C**; if **C = 0**, a borrow of 1 is subtracted, otherwise 0.\n- Status flags updated: **Z** (zero), **DC** (borrow from bit 3), **V** (overflow), and **C** (set if no borrow, cleared if borrow).",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nSUBFWB 0x20, 0, 0   ; W = W - 0x20 - borrow",
+    "; d=0, a=1  → result in WREG, Banked address\nSUBFWB 0x20, 0, 1   ; W = W - 0x20 - borrow (banked)",
+    "; d=1, a=0  → result back to file register, Access bank\nSUBFWB 0x20, 1, 0   ; 0x20 = W - 0x20 - borrow",
+    "; d=1, a=1  → result back to file register, Banked address\nSUBFWB 0x20, 1, 1   ; 0x20 = W - 0x20 - borrow (banked)",
+    "; Load literal into WREG then subtract with borrow, result in WREG (Access bank)\nMOVLW 0x07\nSUBFWB 0x05, 0, 0   ; W = 0x07 - 0x05 - borrow"
+  ]
+}

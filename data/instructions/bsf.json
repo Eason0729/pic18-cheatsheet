@@ -1,0 +1,10 @@
+{
+  "description": "Set bit **b** of file register **f** to 1.\n- `a = 0` → Access‑bank addressing. The register address is interpreted in the access bank.\n- `a = 1` → Banked addressing. The register address is interpreted in the current bank selected by **BSR**.\n- `b` is the bit number (0‑7) to be set.\n\nThe bit set operation does not modify any of the status bits other than the **C** bit, which is **cleared**.",
+  "examples": [
+    "; a=0, bit 2, Access bank\nBSF 0x20, 2, 0   ; set bit 2 of register 0x20 to 1 (access bank)",
+    "; a=1, bit 2, Banked address\nBSF 0x20, 2, 1   ; set bit 2 of register 0x20 to 1 (banked address)",
+    "; a=0, bit 7, Access bank\nBSF 0x30, 7, 0   ; set bit 7 of register 0x30 to 1 (access bank)",
+    "; a=1, bit 7, Banked address\nBSF 0x30, 7, 1   ; set bit 7 of register 0x30 to 1 (banked address)",
+    "; Example with a preloaded literal (WREG is not used for BSF, but shown for completeness)\nMOVLW 0xFF\nBSF 0x20, 0, 0   ; set bit 0 of register 0x20 to 1 (access bank)"
+  ]
+}

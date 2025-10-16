@@ -1,0 +1,8 @@
+{
+  "description": "Clear the Watchdog Timer (WDT). This instruction resets the WDT counter to zero, effectively restarting the watchdog countdown. It is typically used in loops or before the WDT would normally expire.",
+  "examples": [
+    "; clear WDT at startup\nCLRWDT ; WDT counter reset",
+    "; clear WDT after a delay\nCLRWDT ; WDT counter restored to zero",
+    "; clear WDT in a watchdog service routine\nCLRWDT ; prevent WDT time‑out"
+  ]
+}

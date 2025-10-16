@@ -1,0 +1,7 @@
+{
+  "description": "Test the value of bit *b* in register *f*. If the bit is set (1), the processor automatically **skips the next instruction**. If the bit is clear (0), execution continues normally.\n- `a = 0` → *f* is addressed in the *Access bank*.\n- `a = 1` → *f* is addressed in a **banked** location.\n\n```asm\nBTFSS f, b [a]\n```\n",
+  "examples": [
+    "; a=0 (Access bank) – test bit 1 of PORTA, skip next if set\nBTFSS PORTA, 1   ; if PORTA bit1 is 1, the following instruction is skipped",
+    "; a=1 (Banked address) – test bit 4 of file register 0xF30, skip next if set\nBTFSS 0xF30, 4   ; if bit4 of 0xF30 is 1, the following instruction is skipped"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "description": "BC – Branch if Carry. This instruction evaluates the Carry flag (C). If it is set, the Program Counter (PC) advances by two bytes, effectively skipping the following instruction. If the Carry flag is clear, PC advances by one byte so execution continues with the next instruction. This is a conditional skip, not an address‑relative branch.\n- `C = 1` → PC += 2  (skip next instruction)\n- `C = 0` → PC += 1  (continue normally)\nNo operands are required.",
+  "examples": [
+    "; Carry set, BC skips next instruction\nMOVLW 0xFF\nMOVWF 0x20\nADDWF 0x20, 1, 0\nBC\nNOP ; would be skipped",
+    "; Carry clear, BC does not skip\nMOVLW 0x00\nMOVWF 0x20\nADDWF 0x20, 1, 0\nBC\nNOP ; executed",
+    "; Skip NOP after addition that overflows, then fall through\nMOVLW 0xFF\nMOVWF 0x20\nADDWF 0x20, 1, 0\nBC\nNOP ; skipped\nGOTO 0x0100 ; executed"
+  ]
+}

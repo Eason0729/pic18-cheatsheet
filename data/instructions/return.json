@@ -1,0 +1,6 @@
+{
+  "description": "Return from subroutine.\n- Pops the return address from the stack and loads it into the Program Counter (PC).\n- The Stack Pointer (SP) is incremented as the address is removed.\n- Program status bits are unchanged.\n- No operands are required.",
+  "examples": [
+    "; Return from subroutine\nRETURN ; Pop PC from stack and jump to it"
+  ]
+}

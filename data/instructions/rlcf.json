@@ -1,0 +1,15 @@
+{
+  "description": "Rotate a file register **f** left through the Carry bit.\n- `d = 0` → result is written to **WREG**.\n- `d = 1` → result is written back to register **f**.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank",
+    "RLCF 0x1F, 0, 0   ; W = (0x1F << 1) + C (C becomes original bit 7 of 0x1F)",
+    "; d=0, a=1  → result in WREG, Banked address",
+    "RLCF 0x1F, 0, 1   ; W = (0x1F << 1) + C (banked 0x1F)",
+    "; d=1, a=0  → result back to file register, Access bank",
+    "RLCF 0x1F, 1, 0   ; 0x1F = (0x1F << 1) + C",
+    "; d=1, a=1  → result back to file register, Banked address",
+    "RLCF 0x1F, 1, 1   ; 0x1F = (0x1F << 1) + C (banked)",
+    "; Load literal into WREG then rotate file register, result in WREG (Access bank)",
+    "MOVLW 0x3C\nRLCF 0x1F, 0, 0   ; W = (0x1F << 1) + C with W pre‑loaded with 0x3C"
+  ]
+}

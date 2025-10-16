@@ -1,0 +1,10 @@
+{
+  "description": "The **POP** instruction removes the value at the top of the return stack (TOS) and loads it into **WREG**. The stack pointer is advanced so the next value becomes the new TOS. This instruction does not affect any status flags. It is typically used by the **RETURN** instruction or when a program wants to inspect or manipulate the return stack directly.\n\nSyntax:",
+  "examples": [
+    "; POP top of return stack (basic)\nPOP ; WREG receives the value popped from TOS",
+    "; After a CALL, POP to obtain the return address\nPOP ; WREG = return address stored by CALL",
+    "; Use POP to prepare a manual RETURN via BRA\nPOP ; WREG contains the address, next instruction could be BRA WREG",
+    "; POP inside a custom stack routine to retrieve a saved value\nPOP ; WREG holds the popped data for further processing",
+    "; POP after a chain of nested CALLs\nPOP ; WREG = deepest return address on the stack"
+  ]
+}

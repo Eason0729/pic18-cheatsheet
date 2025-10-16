@@ -1,0 +1,10 @@
+{
+  "description": "RCALL performs a **relative call** to a subroutine within the current program counter (PC) range. The PC is first incremented by 2 (pointing to the next instruction), then the 13‑bit signed offset `k` is added to it. The resulting address is the target of the call. The return address (next instruction address) is automatically pushed onto the stack.\n- `k` can be **positive** for forward jumps or **negative** for backward jumps, allowing calls within ±8192 bytes from the current location.\n- The instruction syntax is:",
+  "examples": [
+    "; Forward jump of 1 instruction (2 bytes ahead)\nRCALL 1 ; call subroutine at PC+2",
+    "; Forward jump across a page boundary (20 instructions ahead)\nRCALL 20 ; call subroutine 40 bytes ahead",
+    "; Backward jump of 3 instructions (6 bytes back)\nRCALL -3 ; call subroutine at PC‑6",
+    "; Maximum forward offset (example, 2047 instructions ahead)\nRCALL 2047 ; call subroutine at maximum forward range",
+    "; Short backward offset with signed literal (example)\nRCALL -1 ; return to the instruction just before the call"
+  ]
+}

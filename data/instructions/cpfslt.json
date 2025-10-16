@@ -1,0 +1,10 @@
+{
+  "description": "Compare the contents of a file register **f** with the current contents of **WREG**. If **f** is less than **WREG**, the next instruction in program memory will be skipped. No flags are set and **WREG** is unaffected.\n- Syntax: `CPFSLT f`.\n- The operand `f` is a single‑byte file register; it can be any address in the access bank or the banked memory but no additional addressing options are available.",
+  "examples": [
+    "; f (0x10) < WREG (0x30) → skip next instruction\nCPFSLT 0x10   ; 0x10 < 0x30, next instruction is skipped",
+    "; f (0x20) = WREG (0x20) → no skip\nCPFSLT 0x20   ; 0x20 = 0x20, next instruction executes",
+    "; f (0x30) > WREG (0x10) → no skip\nCPFSLT 0x30   ; 0x30 > 0x10, next instruction executes",
+    "; WREG preloaded with literal 0x07, f (0x04) < WREG → skip next instruction\nCPFSLT 0x04   ; 0x04 < 0x07, next instruction is skipped",
+    "; WREG contains 0x12, f (0x12) = WREG → no skip\nCPFSLT 0x12   ; 0x12 = 0x12, next instruction executes"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Subtract the contents of **WREG** from file register `f`.\n- `d = 0` → result is stored in **WREG**.\n- `d = 1` → result is stored back into register `f`.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nSUBWF 0x20, 0, 0   ; W = 0x20 - W",
+    "; d=0, a=1  → result in WREG, Banked address\nSUBWF 0x20, 0, 1   ; W = 0x20 - W",
+    "; d=1, a=0  → result back to file register, Access bank\nSUBWF 0x20, 1, 0   ; 0x20 = 0x20 - W",
+    "; d=1, a=1  → result back to file register, Banked address\nSUBWF 0x20, 1, 1   ; 0x20 = 0x20 - W",
+    "; Load literal into WREG then subtract, result in WREG (Access bank)\nMOVLW 0x05\nSUBWF 0x20, 0, 0   ; W = 0x20 - 0x05"
+  ]
+}

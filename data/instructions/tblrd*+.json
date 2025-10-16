@@ -1,0 +1,10 @@
+{
+  "description": "The **TBLRD+** instruction reads an 8‑bit byte from program memory at the address currently held in the Table Pointer registers (TBLPAG, TBLPTRU, TBLPTRH, TBLPTRL). The value read is moved into **WREG**.\n\nAfter the data is transferred, the Table Pointer is **post‑incremented**, so the next execution of **TBLRD+** will read the next byte in program memory.\n\n- The instruction has no destination (`d`) or access‑bank (`a`) operands; it operates on the current table pointer value.\n- It is used in conjunction with the `TBLPTR` registers, which must be loaded beforehand.\n- A variant, **TBLRD-**, performs a post‑decrement.",
+  "examples": [
+    "; Assume TBLPAG = 0x00: read first byte of a table\nTBLRD+ ; W = program memory[0x00], TBLPAG becomes 0x01",
+    "; Assume TBLPAG = 0x1F: read a mid‑range table entry\nTBLRD+ ; W = program memory[0x1F], TBLPAG becomes 0x20",
+    "; Assume TBLPAG = 0xFF: read the last byte of the current bank\nTBLRD+ ; W = program memory[0xFF], TBLPAG becomes 0x100 (wraps to next bank if applicable)",
+    "; After reading at 0x00 with TBLRD+, TBLPAG is 0x01: read the next entry\nTBLRD+ ; W = program memory[0x01], TBLPAG becomes 0x02",
+    "; Assume TBLPAG = 0x80: read a byte near the middle of program memory\nTBLRD+ ; W = program memory[0x80], TBLPAG becomes 0x81"
+  ]
+}

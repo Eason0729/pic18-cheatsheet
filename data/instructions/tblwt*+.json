@@ -1,0 +1,9 @@
+{
+  "description": "Write the contents of **WREG** into the table location addressed by **TBLPTR**, then post‑increment **TBLPTR** by one.\n- The instruction has no operands.\n- After the write, **TBLPTR** automatically increments, so the next write will address the following byte.",
+  "examples": [
+    "; TBLPTR set to 0x2000, WREG contains 0xAB – write and increment\nTBLWR+I ; writes 0xAB to table at 0x2000; TBLPTR becomes 0x2001",
+    "; TBLPTR set to 0x200F, WREG contains 0x55 – write and increment across page boundary\nTBLWR+I ; writes 0x55 to 0x200F; TBLPTR becomes 0x2010",
+    "; TBLPTR pre‑loaded with 0x3000, WREG = 0x00 – clear table byte and increment\nTBLWR+I ; writes 0x00 to 0x3000; TBLPTR becomes 0x3001",
+    "; WREG has been loaded with a literal value (e.g., MOVLW 0x10 was executed before)\nTBLWR+I ; writes 0x10 to the table address in TBLPTR; TBLPTR increments by one"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "description": "Write the contents of **WREG** to the table memory location addressed by **TBLPAG** and the 16‑bit **TBLPTR** registers.\n\nThe `+*` suffix indicates a *pre‑increment* operation: the table pointer is incremented **before** the write takes place. After execution the updated **TBLPTR** points to the next address. The instruction does not affect any status bits.\n\nThe pointer increment wraps around, carrying into **TBLPAG** as necessary.",
+  "examples": [
+    "; WREG=0x55, TBLPAG=0x00, TBLPTR=0x0010 before execution\nTBLWT+* ; WREG written to table address (after pre‑increment)",
+    "; WREG=0xA5, TBLPAG=0x01, TBLPTR=0x00FF before execution (carry into high byte)\nTBLWT+* ; WREG written to address 0x0100",
+    "; WREG=0x00, TBLPAG=0x00, TBLPTR=0xFFFF before execution\nTBLWT+* ; pointer overflows to 0x0000, WREG written at 0x0000"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Branch (BRA) – unconditional relative branch.\n- The BRA instruction alters the program counter (PC) by a signed 8‑bit displacement relative to the following instruction.\n- The operand is a label; the assembler computes the displacement.\n- It takes 2 bytes: opcode `0x80` followed by the 8‑bit offset.\n- No options (`d` or `a`).",
+  "examples": [
+    "; forward branch to FWD_LABEL\nBRA FWD_LABEL   ; branch to FWD_LABEL",
+    "; backward branch to START\nBRA START   ; return to START",
+    "; branch to the next instruction (offset 0)\nBRA NEXT_INSTR   ; no operation, PC remains at NEXT_INSTR",
+    "; branch near maximum negative offset\nBRA NEG_LIMIT   ; jumps back 126 bytes"
+  ]
+}

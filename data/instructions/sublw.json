@@ -1,0 +1,10 @@
+{
+  "description": "Subtract the contents of **WREG** from an 8‑bit literal constant `k`. The result is written back to **WREG**.\n- Operation: `WREG = k - WREG`.\n- Status bits (C, Z, DC, OV) are updated as with any 8‑bit subtraction. The result is always stored to **WREG** regardless of flags.",
+  "examples": [
+    "; From literal, WREG=5, literal=10 → W=5\nMOVLW 0x05\nSUBLW 0x0A",
+    "; Underflow, WREG=2, literal=0 → W=0xFE\nMOVLW 0x02\nSUBLW 0x00",
+    "; Borrow across the high byte, WREG=0xFF, literal=0x80 → W=0x81\nMOVLW 0xFF\nSUBLW 0x80",
+    "; Zero result, WREG=0, literal=0 → W=0\nMOVLW 0x00\nSUBLW 0x00",
+    "; Literal pre‑load then subtract, result in W\nMOVLW 0x12\nSUBLW 0x20   ; W = 0x20 - 0x12 = 0x0E"
+  ]
+}

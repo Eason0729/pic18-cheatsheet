@@ -1,0 +1,9 @@
+{
+  "description": "Move a 4‑bit literal value into the **BSR** (Bank Select Register) bits 3:0.\n- The literal must be in the range 0x0–0xF.\n- Only the low four bits of BSR are affected; the upper bits remain unchanged.\n- This instruction is used to switch the active bank for file register accesses.",
+  "examples": [
+    "; Load BSR with 0x0 (bank 0)\nMOVLB 0x0 ; BSR<3:0> = 0x0",
+    "; Load BSR with 0x5 (bank 5)\nMOVLB 0x5 ; BSR<3:0> = 0x5",
+    "; Load BSR with 0xF (bank 15)\nMOVLB 0xF ; BSR<3:0> = 0xF",
+    "; Example: switch to bank 2 before accessing a register\nMOVLB 0x2 ; switch to bank 2\nMOVF 0x10, W ; read from register 0x10 in bank 2"
+  ]
+}

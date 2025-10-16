@@ -1,0 +1,8 @@
+{
+  "description": "Branch if **Zero** flag (**Z**) is set.\n- When the **Z** flag of the STATUS register is 1, the program counter jumps to the label.\n- If **Z** is 0, execution continues with the following instruction.\n- No operands other than a label are required.",
+  "examples": [
+    "; BZ target - branch taken when Z=1\nBZ target ; Jump to target because Z flag is set",
+    "; BZ target - no branch when Z=0\nBZ target ; Execution continues with the next instruction",
+    "; BZ end - example of a label defined later in code\nBZ end   ; Branch to the end label, skipping intermediate code"
+  ]
+}

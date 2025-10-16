@@ -1,0 +1,8 @@
+{
+  "description": "Table Write with **post‑decrement**.\n\nThe `TBLWT*` instruction transfers the contents of **WREG** to the table memory location currently referenced by the 13‑bit **TBLPTR** registers, and then decrements **TBLPTR** by one.  The instruction has no operands and takes no `d` or `a` options.\n\n* **Use** – `TBLPTR` must be loaded with the desired address before the instruction is executed.\n* **Result** – After the write, `WREG` remains unchanged, the byte is stored at the original address, and `TBLPTR` now points to the previous table location.\n\n```asm\nTBLWT*\n```\n",
+  "examples": [
+    "; Set TBLPTR to 0x2000, write value 0x5A from WREG, decrement pointer\nMOVLW 0x00\nMOVWF TBLPTRL\nMOVLW 0x20\nMOVWF TBLPTH\nMOVLW 0x5A\nTBLWT* ; 0x5A written to 0x2000, TBLPTR becomes 0x1FFF",
+    "; Write two consecutive values using post‑decrement\nMOVLW 0xFF\nMOVWF TBLPTRL\nMOVLW 0x01\nMOVWF TBLPTH\nMOVLW 0xAA\nTBLWT* ; writes 0xAA to 0x1FFF, TBLPTR=0x1FFE\nMOVLW 0xBB\nTBLWT* ; writes 0xBB to 0x1FFE, TBLPTR=0x1FFD",
+    "; Demonstrate successive writes – TBLPTR decrements again\nMOVLW 0x00\nMOVWF TBLPTRL\nMOVLW 0x20\nMOVWF TBLPTH\nMOVLW 0x5A\nTBLWT* ; writes 0x5A to 0x2000, TBLPTR=0x1FFF\nMOVLW 0x6B\nTBLWT* ; writes 0x6B to 0x1FFF, TBLPTR=0x1FFE"
+  ]
+}

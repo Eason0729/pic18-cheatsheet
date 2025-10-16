@@ -1,0 +1,8 @@
+{
+  "description": "Branch to a target label if the **Negative (N)** status flag is set. If **N** = 1, the program counter is updated to the relative address of the target, otherwise execution continues with the next instruction. BN does not alter any registers or flags.\n- `N` flag is the test condition.",
+  "examples": [
+    "; Negative flag set, branch executed\nBN negTarget ; jumps to negTarget if N==1",
+    "; Negative flag not set, branch skipped\nBN negTarget ; no jump because N==0",
+    "; Use in a loop to continue while result is negative\nLOOP: MOVLW 0x80\nSUBWF counter, 0 ; sets N\nBN LOOP ; repeat if N==1"
+  ]
+}

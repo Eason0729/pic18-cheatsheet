@@ -1,0 +1,10 @@
+{
+  "description": "Negate the contents of a byte‑wide file register `f`. The two's complement is written back to the same register. The result is always stored in the file register – there is no separate destination option.\n- `a = 0` → access‑bank addressing.\n- `a = 1` → banked addressing.",
+  "examples": [
+    "; a=0  → negate a register in the access bank\nNEGF 0x20, 0   ; 0x20 = 0 - 0x20",
+    "; a=1  → negate a register in the banked address space\nNEGF 0x20, 1   ; 0x20 = 0 - 0x20",
+    "; Load literal into WREG, copy to a register and negate (Access bank)\nMOVLW 0x10\nMOVWF 0x20, 0\nNEGF 0x20, 0   ; 0x20 = 0 - 0x10",
+    "; Load literal into WREG, copy to a register and negate (Banked addressing)\nMOVLW 0x10\nMOVWF 0x20, 1\nNEGF 0x20, 1   ; 0x20 = 0 - 0x10",
+    "; WREG pre‑loaded with a literal value, moved to a register and negated\nMOVLW 0x55\nMOVWF 0x20, 0\nNEGF 0x20, 0   ; 0x20 = 0 - 0x55"
+  ]
+}

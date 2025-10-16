@@ -1,0 +1,8 @@
+{
+  "description": "Branch to a relative address if the **Overflow** flag (V bit in the STATUS register) is **cleared**.\nThe branch condition evaluates the V flag: if it is 0, the instruction causes the program counter (PC) to be incremented by the signed offset; if it is 1, execution continues with the next instruction.",
+  "examples": [
+    "; Branch if overflow flag is zero\nBNOV    NO_OVERFLOW ; PC jumps to NO_OVERFLOW if V == 0",
+    "; Overflow flag set (branch notBSF STATUS, 1        ; set V\nBNOV    NO_OVERFLOW ; branch not taken because V == 1",
+    "; Relative offset example (+3 instructions ahead when V == 0)\nBNOV    +3            ; skip next 3 bytes if V == 0"
+  ]
+}

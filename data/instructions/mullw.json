@@ -1,0 +1,10 @@
+{
+  "description": "Multiply the contents of **WREG** by an 8‑bit literal value and store the 8‑bit product back into **WREG**. The upper byte of the 16‑bit product is discarded.",
+  "examples": [
+    "; Multiply W by 2, result in W\nMULLW 0x02  ; W = W * 2",
+    "; Multiply W by 16, result in W\nMULLW 0x10  ; W = W * 16",
+    "; Multiply W by 255, overflow truncates the high byte\nMULLW 0xFF  ; W = W * 255",
+    "; Multiply W by 0, zero out W\nMULLW 0x00  ; W = 0",
+    "; Load W with 0x03, then multiply by 5 => W = 0x03 * 5\nMOVLW 0x03\nMULLW 0x05  ; W = 0x03 * 5"
+  ]
+}

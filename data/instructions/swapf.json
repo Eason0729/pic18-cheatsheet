@@ -1,0 +1,8 @@
+{
+  "description": "Swap the upper and lower 4‑bit nibbles of the 8‑bit file register `f`.\n- The operation is performed in place on `f`.\n- `d = 0` → the swapped value is stored in **WREG**.\n- `d = 1` → the swapped value overwrites the original contents of register `f`.\n- There is *no* `a` (access‑bank) bit for SWAPF; the file register address can refer to any location.",
+  "examples": [
+    "; d=0 → result goes into WREG (Access bank example)\nSWAPF 0x20, 0   ; W = 0xBA  (if 0x20 originally contains 0xAB)",
+    "; d=1 → result written back to file register\nSWAPF 0x20, 1   ; 0x20 = 0xBA (if 0x20 originally contains 0xAB)",
+    "; Preload WREG with a literal, then d=0 → WREG is overwritten by swapped value\nMOVLW 0x10\nSWAPF 0x20, 0   ; W = 0xBA  (ignores previous WREG value)"
+  ]
+}

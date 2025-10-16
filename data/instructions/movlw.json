@@ -1,0 +1,8 @@
+{
+  "description": "Move a literal 8‑bit value into the working register **WREG**.\n- The operand `k` is an 8‑bit constant (0x00–0xFF).\n- The instruction has no additional options.",
+  "examples": [
+    "; Load 0x00 into WREG\nMOVLW 0x00 ; W = 0x00",
+    "; Load 0xFF into WREG\nMOVLW 0xFF ; W = 0xFF",
+    "; Load 0x12 into WREG\nMOVLW 0x12 ; W = 0x12"
+  ]
+}

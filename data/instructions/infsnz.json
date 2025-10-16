@@ -1,0 +1,10 @@
+{
+  "description": "Increment the contents of **f**. After incrementing, if the new value of **f** is **not zero** the following instruction is skipped. The instruction does not modify the carry flag, but updates the zero, negative and digit‑carry flags according to the new value of **f**.\n- `d = 0` → result is written to **WREG**.\n- `d = 1` → result is written back into register **f**.\n- `a = 0` → use access‑bank addressing.\n- `a = 1` → use banked addressing.",
+  "examples": [
+    "; d=0, a=0  → result in WREG, Access bank\nINFSNZ 0x20, 0, 0   ; 0x20 = 0x20+1, skip next if result != 0",
+    "; d=0, a=1  → result in WREG, Banked address\nINFSNZ 0x20, 0, 1   ; 0x20 = 0x20+1, skip next if result != 0",
+    "; d=1, a=0  → result back to file register, Access bank\nINFSNZ 0x20, 1, 0   ; 0x20 = 0x20+1, skip next if result != 0",
+    "; d=1, a=1  → result back to file register, Banked address\nINFSNZ 0x20, 1, 1   ; 0x20 = 0x20+1, skip next if result != 0",
+    "; Load literal into WREG then increment, result in WREG (Access bank)\nMOVLW 0x10\nINFSNZ 0x20, 0, 0   ; W = 0x20+1, skip next if result != 0"
+  ]
+}

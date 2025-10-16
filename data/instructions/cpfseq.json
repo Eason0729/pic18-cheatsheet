@@ -1,0 +1,10 @@
+{
+  "description": "Compare file register `f` with the contents of **WREG**. If the two values are equal, the next instruction is skipped.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; a=0 – compare register in access bank, skip if equal\nCPFSEQ 0x20, 0 ; skips next if W = 0x20",
+    "; a=1 – compare register in banked address, skip if equal\nCPFSEQ 0x62, 1 ; skips next if W = value at 0x62 in banked area",
+    "; Load literal into WREG then compare access bank\nMOVLW 0x20\nCPFSEQ 0x20, 0 ; skips next if W = 0x20 (equal)",
+    "; Load literal into WREG then compare banked address\nMOVLW 0x20\nCPFSEQ 0x62, 1 ; skips next if W = 0x20 (equal)",
+    "; Load literal into WREG, compare with different register value – no skip\nMOVLW 0x10\nCPFSEQ 0x20, 0 ; W = 0x10, f = 0x20 – next instruction executed"
+  ]
+}

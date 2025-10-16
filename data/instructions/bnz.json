@@ -1,0 +1,8 @@
+{
+  "description": "Branch If Not Zero (BNZ)\n\nBranch to the specified label if the Zero flag (Z bit of the STATUS register) is **clear** (0), which indicates that the result of the most recent arithmetic or logical operation was non‑zero.\n- If Z = 0 → the program counter is updated to point to the given label.\n- If Z = 1 → execution continues with the following instruction.",
+  "examples": [
+    "\"; BNZ branch taken: Z flag cleared by INCFSZ\\nINCFSZ counter,0\\nBNZ skipLabel   ; jumps to skipLabel because Z=0\"",
+    "\"; BNZ branch not taken: Z flag set by CLRF\\nCLRF counter,0\\nBNZ skipLabel   ; does not jump (Z=1)\"",
+    "\"; BNZ used to jump to a label defined a few lines later\\nINCFSZ counter,0\\nBNZ targetLabel   ; jumps to targetLabel\\nNOP\\nNOP\\ntargetLabel:\\nNOP\""
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Move the contents of **file register** `f` to another location.\n- `d = 0` → result is stored in **WREG** (copy to W).\n- `d = 1` → result overwrites the original file register `f` (copy to itself).\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; d=0, a=0  → copy to WREG, Access bank\nMOVF 0x30, 0, 0   ; W = 0x30",
+    "; d=0, a=1  → copy to WREG, Banked address\nMOVF 0x30, 0, 1   ; W = 0x30 (banked)",
+    "; d=1, a=0  → overwrite file register, Access bank\nMOVF 0x30, 1, 0   ; 0x30 = 0x30  (no change, but still writes)",
+    "; d=1, a=1  → overwrite file register, Banked address\nMOVF 0x30, 1, 1   ; 0x30 = 0x30 (banked)",
+    "; Pre-load WREG with literal, then copy to WREG (access bank)\nMOVLW 0x10\nMOVF 0x30, 0, 0   ; W = 0x30, overrides 0x10"
+  ]
+}

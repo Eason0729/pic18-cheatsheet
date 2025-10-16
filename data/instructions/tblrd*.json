@@ -1,0 +1,9 @@
+{
+  "description": "Read the contents of the table location pointed to by the 21‑bit table pointer (`TBLPTR`) into **WREG**. The address is formed by combining the 8‑bit `TBLPAG` page register with the `TBLPTR` register. The `TBLRD` instruction is a single‑word instruction that has no operands or options; it always writes the retrieved byte into **WREG**.\n\n- `TBLPAG`: 8‑bit register that selects the current table page.\n- `TBLPTR`: 16‑bit register that holds the low and high byte of the table address.\n- The instruction reads the byte at address (`TBLPAG << 8 | TBLPTR`) and places it in **WREG**.",
+  "examples": [
+    "; TBLPAG=0, TBLPTR=0x0005 (address 5), read into WREG\nTBLRD ; WREG = table[5]",
+    "; TBLPAG=1, TBLPTR=0x0100 (address 256 within page 1), read into WREG\nTBLRD ; WREG = table[0x100]",
+    "; TBLPAG=2, TBLPTR=0x0200 (address 512), read into WREG\nTBLRD ; WREG = table[0x200]",
+    "; TBLPAG=0, TBLPTR=0x00FF (address 255), read into WREG\nTBLRD ; WREG = table[0xFF]"
+  ]
+}

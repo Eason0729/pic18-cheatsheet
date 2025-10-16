@@ -1,0 +1,10 @@
+{
+  "description": "Compare the contents of file register **f** with **WREG**. If **WREG** contains a value greater than that in **f**, the instruction immediately following the compare instruction is skipped. The instruction also updates the Status register: Z is set when the values are equal and C is set when **WREG** > f.\n- `a = 0` → Access‑bank addressing.\n- `a = 1` → Banked addressing.",
+  "examples": [
+    "; a=0, WREG < f, no skip\nCPFSGT 0x10, 0 ; W = 0x05, f = 0x07 → Next instruction executes",
+    "; a=0, WREG > f, skip\nCPFSGT 0x10, 0 ; W = 0x09, f = 0x07 → Next instruction is skipped",
+    "; a=1, WREG < f, no skip\nCPFSGT 0x0100, 1 ; W = 0x15, f = 0x20 → Next instruction executes",
+    "; a=1, WREG > f, skip\nCPFSGT 0x0100, 1 ; W = 0x25, f = 0x20 → Next instruction is skipped",
+    "; Load literal into WREG then compare, skip if greater\nMOVLW 0x12\nCPFSGT 0x10, 0 ; W = 0x12, f = 0x07 → Next instruction is skipped"
+  ]
+}

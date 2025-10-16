@@ -1,0 +1,8 @@
+{
+  "description": "Return from interrupt and re‑enable interrupts.\n- Pops the return address from the stack and loads it into the program counter.\n- Restores the I bit in the STATUS register to **1**, allowing further interrupts.\n- Should be used at the end of an interrupt service routine (ISR).\n- No operands are accepted.",
+  "examples": [
+    "; Basic return from an ISR\nRETFIE   ; Pop PC from stack, set I=1",
+    "; Return from Timer0 ISR\nRETFIE   ; Restore PC and enable interrupts again",
+    "; Return after deliberately disabling interrupts\nRETFIE   ; I bit restored to 1, execution continues in main code"
+  ]
+}
