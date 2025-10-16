@@ -82,7 +82,7 @@ export default component$(() => {
           <footer class="text-center text-primary-600 mt-auto">
             <p>
               Back to{" "}
-              <a href="/" class="underline">
+              <a href=".." class="underline">
                 PIC18 ISA Cheatsheet
               </a>
             </p>

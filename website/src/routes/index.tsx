@@ -28,7 +28,7 @@ export default component$(() => {
             <ul class="text-md grid grid-cols-1 md:grid-cols-2 gap-y-0.5 gap-x-3">
               {items.map((item, index) => (
                 <a
-                  href={`/${item.name.toLowerCase()}`}
+                  href={`./${item.name.toLowerCase()}`}
                   key={index}
                   class="text-text duration-150 not-disabled:hover:bg-primary not-disabled:hover:text-text-hover focus:ring-4 focus:ring-outline focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 rounded-lg p-2 inline-block"
                 >

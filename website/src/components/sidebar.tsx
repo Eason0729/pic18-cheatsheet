@@ -79,7 +79,7 @@ export default component$(
                             entry.name === selectedEntry.value ? "selected" : ""
                           }
                           href={
-                            "/" + encodeURIComponent(entry.name.toLowerCase())
+                            "../" + encodeURIComponent(entry.name.toLowerCase())
                           }
                         >
                           {entry.name}
@@ -90,30 +90,6 @@ export default component$(
                 }),
               )}
             />
-            {/*{Object.entries(categories).map(([category, entries]) => (
-
-              <AccordionItem
-                key={category}
-                isOpen={selectedCategory.value === category}
-                onToggle$={() =>
-                  (selectedCategory.value =
-                    selectedCategory.value === category ? null : category)
-                }
-                trigger={category.trim().replace("Operations", "")}
-                content={entries.map((entry: Entry) => (
-                  <a
-                    class="flex items-center rounded-sm text-base duration-150 hover:bg-primary p-1.5 pl-4 select-none data-[state=selected]:bg-secondary"
-                    key={entry.name}
-                    data-state={
-                      entry.name === selectedEntry.value ? "selected" : ""
-                    }
-                    href={"/" + encodeURIComponent(entry.name.toLowerCase())}
-                  >
-                    {entry.name}
-                  </a>
-                ))}
-              />*/}
-            {/*))}*/}
           </div>
         </div>
       </>
