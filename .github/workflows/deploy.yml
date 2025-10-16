@@ -15,17 +15,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+          package_json_file: "./website/package.json"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "pnpm"
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8 # Adjust if using a different pnpm version
+          cache-dependency-path: ./website/pnpm-lock.yaml
 
       - name: Install dependencies
         run: |
@@ -38,10 +40,10 @@ jobs:
           pnpm run build.server  # This generates files in website/dist/ via SSG adapter
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5 # Updated to latest v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3 # Updated to latest v3 (fixes deprecation issues)
         with:
           path: "./website/dist" # Path to your SSG output directory in the website subdirectory
 
@@ -54,4 +56,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4 # Updated to latest v4
