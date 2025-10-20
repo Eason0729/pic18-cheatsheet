@@ -39,6 +39,11 @@ jobs:
           cd website
           pnpm run build.server  # This generates files in website/dist/ via SSG adapter
 
+      - name: Purify HTML files
+        run: |
+          cd website
+          pnpm run purify  # This purifies HTML files in website/dist/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5 # Updated to latest v5
 
